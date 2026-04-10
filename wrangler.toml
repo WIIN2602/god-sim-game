@@ -1,0 +1,6 @@
+name = "God-Simulators"
+main = "src/index.js"
+compatibility_date = "2026-04-10"
+
+[vars]
+ENVIRONMENT = "production"
