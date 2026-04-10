@@ -14,18 +14,26 @@ export const renderMainUI = () => `
             <div id="god-status" class="text-sm font-mono text-emerald-400 italic">พลังพระเจ้าสถิตอยู่กับท่าน</div>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-center">
-            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
-                <p class="text-slate-400 text-xs uppercase tracking-widest">เผ่าพันธุ์</p>
-                <p id="display-race" class="text-xl font-bold">-</p>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6 text-center">
+            <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700">
+                <p class="text-slate-400 text-[10px] uppercase tracking-widest">เผ่าพันธุ์</p>
+                <p id="display-race" class="text-lg font-bold">-</p>
             </div>
-            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
-                <p class="text-slate-400 text-xs uppercase tracking-widest">ประชากร</p>
-                <p id="display-pop" class="text-xl font-bold text-blue-400">0</p>
+            <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700">
+                <p class="text-slate-400 text-[10px] uppercase tracking-widest">ประชากร</p>
+                <p id="display-pop" class="text-lg font-bold text-blue-400">0</p>
             </div>
-            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
-                <p class="text-slate-400 text-xs uppercase tracking-widest">พลังศรัทธา</p>
-                <p id="display-faith" class="text-xl font-bold text-amber-400">0</p>
+            <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700">
+                <p class="text-slate-400 text-[10px] uppercase tracking-widest">ศรัทธา</p>
+                <p id="display-faith" class="text-lg font-bold text-amber-400">0</p>
+            </div>
+            <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700">
+                <p class="text-slate-400 text-[10px] uppercase tracking-widest">อาหาร</p>
+                <p id="display-food" class="text-lg font-bold text-emerald-400">0</p>
+            </div>
+            <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700">
+                <p class="text-slate-400 text-[10px] uppercase tracking-widest">ไม้</p>
+                <p id="display-wood" class="text-lg font-bold text-orange-400">0</p>
             </div>
         </div>
 
@@ -33,16 +41,21 @@ export const renderMainUI = () => `
             <div>[System] โลกกำลังรอคอยการถือกำเนิด...</div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-            <button onclick="initGame('Human')" class="bg-slate-700 hover:bg-blue-600 transition p-3 rounded-lg text-sm font-semibold">จุติมนุษย์</button>
-            <button onclick="initGame('Elf')" class="bg-slate-700 hover:bg-emerald-600 transition p-3 rounded-lg text-sm font-semibold">จุติเอลฟ์</button>
-            <button onclick="initGame('Orc')" class="bg-slate-700 hover:bg-red-600 transition p-3 rounded-lg text-sm font-semibold">จุติออร์ค</button>
+        <div id="initial-actions" class="grid grid-cols-3 gap-3">
+            <button onclick="window.initGame('Human')" class="bg-slate-700 hover:bg-blue-600 transition p-3 rounded-lg text-xs font-semibold">จุติมนุษย์</button>
+            <button onclick="window.initGame('Elf')" class="bg-slate-700 hover:bg-emerald-600 transition p-3 rounded-lg text-xs font-semibold">จุติเอลฟ์</button>
+            <button onclick="window.initGame('Orc')" class="bg-slate-700 hover:bg-red-600 transition p-3 rounded-lg text-xs font-semibold">จุติออร์ค</button>
+        </div>
+
+        <div id="game-actions" class="hidden grid grid-cols-1 gap-3">
+            <button onclick="window.nextYear()" class="bg-amber-600 hover:bg-amber-500 transition p-4 rounded-lg font-bold text-slate-900">เข้าสู่ปีถัดไป</button>
         </div>
     </div>
 
     <script type="module">
-        import { initGame } from '/logic/gameEngine.js';
-        window.initGame = initGame; // ทำให้ HTML เรียกใช้ฟังก์ชันจาก module ได้
+        import { initGame, nextYear } from '/logic/gameEngine.js';
+        window.initGame = initGame;
+        window.nextYear = nextYear;
     </script>
 </body>
 </html>
