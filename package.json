@@ -2,6 +2,6 @@
   "name": "god-sim-game",
   "type": "module",
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "wrangler": "^4.81.1"
   }
 }
